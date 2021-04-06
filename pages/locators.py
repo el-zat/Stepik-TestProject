@@ -10,9 +10,9 @@ class LoginPageLocators():
 
 class ProductStorePageLocators():
     BASKET_BUTTON = (By.CSS_SELECTOR, "#add_to_basket_form")
-    PRODUCT_NAME_IN_STORE = (By.CSS_SELECTOR, ".col-sm-6 >h1")
+    PRODUCT_NAME_IN_STORE = (By.CSS_SELECTOR, ".product_main >h1")
     PRODUCT_PRICE_IN_STORE = (By.CSS_SELECTOR, ".col-sm-6 >p.price_color")
-    SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alertinner")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages div.in:nth-child(1) strong")
 
 class ProductBasketPageLocators():
     PRODUCT_NAME_IN_BASKET = (By.CSS_SELECTOR, ".col-sm-4 >h3>a")
