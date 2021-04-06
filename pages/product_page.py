@@ -14,12 +14,24 @@ class ProductStorePage(BasePage):
         product_prise_in_store = self.browser.find_element(*ProductStorePageLocators.PRODUCT_PRICE_IN_STORE)
         return product_name_in_store.text, product_prise_in_store.text
 
-    def check_success_message_on_product_page(self):
-        assert self.is_element_present(*ProductStorePageLocators.SUCCESS_MESSAGE), "Success message is not presented"
-
-    def check_message_about_product_in_basket(self,product_name_in_store):
+    def check_message_about_product_in_basket_is_correct(self,product_name_in_store):
          message_prod_in_basket = self.browser.find_element(*ProductStorePageLocators.SUCCESS_MESSAGE)
          assert product_name_in_store == message_prod_in_basket.text, "book name in message is wrong"
+
+
+    def check_success_message_on_product_page_appears(self):
+        assert self.is_element_present(*ProductStorePageLocators.SUCCESS_MESSAGE), "Success message is not presented"
+
+
+    def check_success_message_on_product_page_does_not_appear(self):
+        assert self.is_not_element_present(*ProductStorePageLocators.SUCCESS_MESSAGE), "Success message is presented/"\
+                                                                                       "but it schould not be"
+
+
+    def check_success_message_on_product_page_disappears_after_adding_product_to_basket(self):
+        assert self.is_disappeared(*ProductStorePageLocators.SUCCESS_MESSAGE), "Success message does not diassaper"
+
+
 
 class ProductBasketPage(BasePage):
     def check_price_and_name_in_basket(self, product_name_in_store, product_prise_in_store):
