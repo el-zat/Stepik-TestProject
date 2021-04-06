@@ -1,8 +1,6 @@
-from .locators import ProductStorePageLocators
-from .locators import ProductBasketPageLocators
-import time
-from selenium.common.exceptions import NoAlertPresentException
-from .base_page import BasePage
+from TestProject.pages.locators import ProductStorePageLocators
+from TestProject.pages.locators import ProductBasketPageLocators
+from TestProject.pages.base_page import BasePage
 
 
 class ProductStorePage(BasePage):
@@ -16,8 +14,12 @@ class ProductStorePage(BasePage):
         product_prise_in_store = self.browser.find_element(*ProductStorePageLocators.PRODUCT_PRICE_IN_STORE)
         return product_name_in_store.text, product_prise_in_store.text
 
-    def check_message_about_adding_to_basket(self):
-         assert self.is_element_present(*ProductStorePageLocators.SUCCESS_MESSAGE), "Success message is not presented"
+    def check_success_message_on_product_page(self):
+        assert self.is_element_present(*ProductStorePageLocators.SUCCESS_MESSAGE), "Success message is not presented"
+
+    def check_message_about_product_in_basket(self,product_name_in_store):
+         message_prod_in_basket = self.browser.find_element(*ProductStorePageLocators.SUCCESS_MESSAGE)
+         assert product_name_in_store == message_prod_in_basket.text, "book name in message is wrong"
 
 class ProductBasketPage(BasePage):
     def check_price_and_name_in_basket(self, product_name_in_store, product_prise_in_store):
