@@ -18,3 +18,6 @@ class ProductBasketPageLocators():
     PRODUCT_NAME_IN_BASKET = (By.CSS_SELECTOR, ".col-sm-4 >h3>a")
     PRODUCT_PRICE_IN_BASKET = (By.CSS_SELECTOR, ".col-sm-1 >p")
 
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
