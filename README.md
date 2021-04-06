@@ -1,2 +1,2 @@
 # TestProject
-Stepik-Final Task
+Stepik-Selenium-Final Task
