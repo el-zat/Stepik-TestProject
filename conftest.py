@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Apr  1 16:55:27 2021
-
-@author: Z440
-"""
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
